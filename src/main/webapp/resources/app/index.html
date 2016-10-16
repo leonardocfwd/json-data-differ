@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JSON Data Differ</title>
+<link href="resources/assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body ng-app="jsonDiffApp" ng-controller="diffController as controller">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Please provide the Diff ID:</label>
+					<input type="text" class="form-control" id="diffIdInput"
+						placeholder="Your first server post will create the diff with this id."
+						ng-model="controller.diffId">
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="jumbotron">
+					<h2>Left HTTP Endpoint</h2>
+					<div class="form-group">
+						<label for="exampleInputFile">File input</label> <input
+							type="file" id="leftFileInput" file-model="myLeftFile">
+					</div>
+					<button type="submit" class="btn btn-primary"
+						ng-click="controller.sendLeftFile()">Send File</button>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="jumbotron">
+					<h2>Right HTTP Endpoint</h2>
+					<div class="form-group">
+						<label for="exampleInputFile">File input</label> <input
+							type="file" id="rightFileInput" file-model="myRightFile">
+					</div>
+					<button type="submit" class="btn btn-primary"
+						ng-click="controller.sendRightFile()">Send File</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="jumbotron">
+					<h2>Results HTTP Endpoint</h2>
+					<p>Use This endpoint to check the diff results. The returned
+						JSON Object will show up in a modal pop-up.</p>
+					<button type="submit" class="btn btn-primary center-block"
+						ng-click="controller.getResults()">View Results</button>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">JSON Data Differ</h4>
+				</div>
+				<div class="modal-body" id="modalMessage"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="resources/assets/js/jquery.min.js"></script>
+	<script src="resources/assets/js/angular.min.js"></script>
+	<script src="resources/assets/js/angular-base64.min.js"></script>
+	<script src="resources/assets/js/bootstrap.min.js"></script>
+	<script src="resources/app/diffApp.js"></script>
+	<script src="resources/app/diffController.js"></script>
+	<script src="resources/app/diffService.js"></script>
+	<script src="resources/app/diffFileDirective.js"></script>
+	<script src="resources/app/appUtils.js"></script>
+
+</body>
+
+</html>
