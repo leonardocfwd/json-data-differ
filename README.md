@@ -4,9 +4,9 @@ This is a tool to diff two JSON Base64 binary data and provide the comparison re
 
 It is composed by three HTTP endpoints:
 
-* <host>/v1/diff/<ID>/left (receives JSON Base64 binary data)
-* <host>/v1/diff/<ID>/right (receives JSON Base64 binary data)
-* <host>/v1/diff/<ID> (provides the diff results)
+* `host`/v1/diff/`ID`/left (receives JSON Base64 binary data)
+* `host`/v1/diff/`ID`/right (receives JSON Base64 binary data)
+* `host`/v1/diff/`ID` (provides the diff results)
 
 The diff HTTP endpoint will give you three possible outputs depending upon the left and right files you upload:
 
